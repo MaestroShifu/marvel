@@ -11,6 +11,9 @@ import { ServiceService } from "./services/service.service";
 //Import Pipes
 import { TextSmallPipe } from './pipes/text-small.pipe';
 
+//Import ngx pagination
+import { NgxPaginationModule } from 'ngx-pagination';
+
 // Import components project angular
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared-components/navbar/navbar.component';
@@ -26,7 +29,8 @@ import { HomeComponent } from './components/root-pages/home/home.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]

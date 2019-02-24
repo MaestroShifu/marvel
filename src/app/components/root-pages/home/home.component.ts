@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ServiceService } from "../../../services/service.service";
 
-import { Hero } from "../../../models/models";
+import { Hero, Page } from "../../../models/models";
 
 @Component({
   selector: 'app-home',
@@ -13,18 +13,41 @@ export class HomeComponent implements OnInit {
 
   public heroes: Hero[];
 
-  datatest: string = "Originally a partner of the mind-altering assassin Black Swan, Nijo spied on Deadpool as part of the Swan's plan to exact revenge for Deadpool falsely taking credit for the Swan's assassination of the ";
+  public page: Page;
+
+  public selectSort: any[];
 
   constructor(private _service: ServiceService) {
     //inicializar  
     this.heroes = [];
-""
-    console.log("data de leng:", this.datatest.length);
+
+    this.selectSort = [
+      {name: "Sort by", value: ""},
+      {name: "Name A-Z", value: "name"},
+      {name: "Name Z-A", value: "-name"},
+      {name: "Modified Present-Past", value: "modified"},
+      {name: "Modified Past-Present", value: "-modified"}
+    ];
+
+    this.page = {
+      indexPage: 1,
+      total: 0,
+      itemPerPage: 10,
+      dataPage: 0,
+      sort: ""  
+    };
   }
 
   ngOnInit() {
-    this._service.get_all_characters().subscribe((response: any) => {
+    this.loadViewService();
+  }
+  
+  loadViewService() {
+    this.heroes = [];
 
+    this._service.get_all_characters(this.page).subscribe((response: any) => {
+      this.page.total = response.data.total;
+  
       response.data.results.forEach((data: any) => {
         this.heroes.push({
           id: data.id,
@@ -35,6 +58,19 @@ export class HomeComponent implements OnInit {
         });
       });
     });
+  }
+
+  pageChanged(event: any) {
+    this.page.indexPage = event;
+    this.page.dataPage = (+event - 1) * this.page.itemPerPage;
+
+    this.loadViewService();
+  }
+
+  sortCharacters(event: any) {
+    this.page.sort = event;
+
+    this.loadViewService();
   }
 
 }

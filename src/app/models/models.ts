@@ -5,3 +5,11 @@ export interface Hero {
     description: string;
     comics: Object[];
 }
+
+export interface Page {
+    indexPage: number;
+    total: number;
+    itemPerPage: number;
+    dataPage: number;
+    sort: string;
+}

@@ -6,8 +6,8 @@ body {
 
 .container-marvel {
     width: 100vw;
-    height: 100vh;
-    background-color: #f4f4f4;
+    height: auto !important;
+    background-color: #ebebeb !important;
 }
 
 .container-flex-row {
@@ -52,4 +52,19 @@ body {
     height: 100%;
     width: 100%;
     overflow: auto;
+}
+
+.ngx-pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Manejo en X */
+    align-items: center; /* Manjeo en Y  */
+    padding: 0px !important;
+}
+
+.ngx-pagination .current {
+    background: #ebebeb !important;
+    color: #847d7c !important;
+    font-weight: bold;
 }

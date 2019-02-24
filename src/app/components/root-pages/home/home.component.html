@@ -9,12 +9,8 @@
 
   <!-- Sorting -->
   <div class="form-group">
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <select class="form-control" (change)="sortCharacters($event.target.value)">
+      <option [value]="item.value" *ngFor="let item of selectSort">{{ item.name }}</option>
     </select>
   </div>
   <!-- End Sorting -->
@@ -24,7 +20,8 @@
 
 <!-- Content data -->
 <div class="container-flex-row container-data-cards">
-  <div class="card" *ngFor="let hero of heroes">
+
+  <div class="card" *ngFor="let hero of heroes | paginate: { itemsPerPage: page.itemPerPage, currentPage: page.indexPage, totalItems: page.total };">
     <!-- primer row -->
     <div class="container-flex-row card-content">
       <div class="card-custom-avatar">
@@ -54,25 +51,10 @@
     </div>
     <!-- End List Comics -->
   </div>
+
 </div>
 <!-- End Content data -->
 
 <!-- Pagination -->
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 <!-- End Pagination -->
