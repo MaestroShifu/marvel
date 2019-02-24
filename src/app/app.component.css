@@ -5,8 +5,10 @@
 .container-viewer {
     justify-content: flex-start !important;
     width: 80% !important;
+    background-color: #f4f4f4 !important;
 }
 
 .container-favorite {
     width: 20% !important;
+    background-color: #ebebeb !important;
 }

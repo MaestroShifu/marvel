@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ServiceService {
+
+  private host: string;
+  private key: string;
+
+  // http://gateway.marvel.com/v1/public/comics?ts=1&apikey=bb176649dd28fc5a09bf67e88a6b326f&hash=d69b04813f18aecc036b69c34d0c6fef
+
+  constructor(private http: HttpClient) {
+    this.host = 'http://gateway.marvel.com/v1/public';
+    this.key = '?ts=1&apikey=bb176649dd28fc5a09bf67e88a6b326f&hash=d69b04813f18aecc036b69c34d0c6fef'
+  }
+
+  get_image(url: string, format: string) {
+    return `${url}/standard_xlarge.${format}`;
+  }
+
+  get_all_characters() {
+    return this.http.get(`${this.host}/characters${this.key}`);
+  }
+}
