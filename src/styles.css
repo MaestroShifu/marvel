@@ -1,1 +1,55 @@
+body {
+    margin: 0px;
+    position: relative;
+    width: 100%;
+}
 
+.container-marvel {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container-flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Manejo en X */
+    align-items: center; /* Manjeo en Y  */
+    width: 100%;
+}
+
+.container-flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center; /* Manejo en Y */
+    align-items: center; /* Manjeo en X */
+    width: 100%;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Manejo en X */
+    align-items: center; /* Manjeo en Y  */
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center; /* Manejo en Y */
+    align-items: center; /* Manjeo en X */
+}
+
+/* Solcuiona el tema de no completar with rutas hijas */
+.data-page {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}

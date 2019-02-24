@@ -1,0 +1,12 @@
+.container-data {
+    flex-wrap: nowrap !important;
+}
+
+.container-viewer {
+    justify-content: flex-start !important;
+    width: 80% !important;
+}
+
+.container-favorite {
+    width: 20% !important;
+}
