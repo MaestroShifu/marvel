@@ -5,7 +5,7 @@ body {
 }
 
 .container-marvel {
-    width: 100vw;
+    width: 100%;
     height: auto !important;
     background-color: #ebebeb !important;
 }

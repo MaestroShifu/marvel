@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServiceService } from "../../../services/service.service";
+import { SearchNavbarService } from "../../../services/search-navbar.service";
 
 import { Hero, Page } from "../../../models/models";
 
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   public selectSort: any[];
 
-  constructor(private _service: ServiceService) {
+  constructor(private _service: ServiceService, private _searchService: SearchNavbarService) {
     //inicializar  
     this.heroes = [];
 
@@ -39,6 +40,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._searchService.text.subscribe((text: string) => {
+      if(text) {
+        this.page.search = text;
+
+        this.loadViewService();
+      }
+    });
+
     this.loadViewService();
   }
   

@@ -23,7 +23,10 @@ export class ServiceService {
   }
 
   get_all_characters(page?: Page) {
-    // nameStartsWith=
+    if(page.search && (page.search.length > 0)) {
+      return this.http.get(`${this.host}/characters?nameStartsWith=${page.search}&orderBy=${page.sort}&limit=${page.itemPerPage}&offset=${page.dataPage}&${this.key}`);
+    }
+
     return this.http.get(`${this.host}/characters?&orderBy=${page.sort}&limit=${page.itemPerPage}&offset=${page.dataPage}&${this.key}`);
   }
 }

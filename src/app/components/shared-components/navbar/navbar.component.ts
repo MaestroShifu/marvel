@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SearchNavbarService } from "../../../services/search-navbar.service";
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _serviceNavBar: SearchNavbarService) {
+
+  }
 
   ngOnInit() {
+  }
+
+  searchCharacter(text: string) {
+    this._serviceNavBar.changeTextInput(text);
   }
 
 }

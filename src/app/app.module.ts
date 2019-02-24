@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 //import service
 import { ServiceService } from "./services/service.service";
+import { SearchNavbarService } from "./services/search-navbar.service";
 
 //Import Pipes
 import { TextSmallPipe } from './pipes/text-small.pipe';
@@ -32,7 +33,10 @@ import { HomeComponent } from './components/root-pages/home/home.component';
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [ServiceService],
+  providers: [
+    ServiceService,
+    SearchNavbarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

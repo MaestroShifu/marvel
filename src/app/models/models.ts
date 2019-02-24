@@ -12,4 +12,5 @@ export interface Page {
     itemPerPage: number;
     dataPage: number;
     sort: string;
+    search?: string;
 }
