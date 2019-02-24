@@ -1,0 +1,22 @@
+.logo-marvel {
+    width: 100px;
+}
+
+.navbar {
+    background-color: #2d2727 !important;
+    justify-content: flex-start !important;
+}
+
+.input-group {
+    width: 40% !important;
+    margin-left: 20%;
+}
+
+.form-control {
+    border: 1px solid #ffffff !important;
+}
+
+.input-group-text {
+    background-color: #ffffff !important;
+    color: #e5e5e5 !important; 
+}
