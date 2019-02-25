@@ -121,6 +121,11 @@ body {
     color: #4e4544;
 }
 
+.btn-modal-favorite-disable {
+    background-color: #322827;
+    color: #ec1d23;
+}
+
 .btn-moda-buy {
     background-color: #dcdcdc;
     color: #ec1d23;

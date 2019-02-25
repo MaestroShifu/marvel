@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ServiceService } from "../../../services/service.service";
 import { SearchNavbarService } from "../../../services/search-navbar.service";
+import { LocalStorageService } from "../../../services/local-storage.service";
 
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -18,6 +19,7 @@ import { Page, Comic } from '../../../models/models';
 export class ComicsListComponent implements OnInit {
 
   public comics: Comic[];
+  public favoriteComics: Comic[];
 
   public comicModal: Comic;
 
@@ -25,8 +27,11 @@ export class ComicsListComponent implements OnInit {
 
   public selectSort: any[];
 
-  constructor(private _ngxSmartModalService: NgxSmartModalService, private _activatedRoute: ActivatedRoute,private _service: ServiceService, private _searchService: SearchNavbarService, private _ngxSpinner: NgxSpinnerService) {    
+  constructor(private _localStorage: LocalStorageService, private _ngxSmartModalService: NgxSmartModalService, private _activatedRoute: ActivatedRoute,private _service: ServiceService, private _searchService: SearchNavbarService, private _ngxSpinner: NgxSpinnerService) {    
     this.comics = [];
+    this.favoriteComics = [];
+
+    this.favoriteComics = this._localStorage.getData();
     
     this.page = {
       indexPage: 1,
@@ -48,16 +53,34 @@ export class ComicsListComponent implements OnInit {
     ];
    }
 
-  ngOnInit() {
+  ngOnInit() {    
     this._searchService.text.subscribe((text: string) => {
       if(text) {
         this.page.search = text;
-
+        
         this.loadViewService();
       }
     });
-
+    
     this.loadViewService();
+
+    this._localStorage.marvel.subscribe((marvel: any) => {
+      this.favoriteComics = marvel;
+
+      this.filterVisibleComic();
+    });
+  }
+
+  filterVisibleComic(){
+    if(this.comics.length > 0) {
+      this.comics.filter((comic: Comic) => {
+        this.favoriteComics.forEach((data: Comic) => {
+          if(comic.id == data.id) {
+            comic.visible = false;
+          }
+        });
+      });
+    }
   }
 
   loadViewService() {
@@ -74,13 +97,16 @@ export class ComicsListComponent implements OnInit {
             img: this._service.get_image_comic  (data.thumbnail.path, data.thumbnail.extension),
             title: data.title,
             description: data.description,
-            number: data.issueNumber
+            number: data.issueNumber,
+            visible: true
           });
         });
       }, (error: any) => {
         console.log("Fallo la carga de los characters ", error);
         alert("Fallo en la coneccion");
       }, () => {
+        this.filterVisibleComic();
+
         this._ngxSpinner.hide();
       });
     });
@@ -103,6 +129,12 @@ export class ComicsListComponent implements OnInit {
   openModal(data: Comic) {
     this.comicModal = data;
     this._ngxSmartModalService.getModal('myModal').open();
+  }
+
+  addComic(data: Comic) {
+    this._localStorage.changeData(data);
+
+    this._ngxSmartModalService.getModal('myModal').close();
   }
 
 }

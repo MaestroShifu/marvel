@@ -6,10 +6,10 @@
 <!-- End title -->
 
 <!-- Data comic -->
-<div class="container-flex-row container-comic">
-    <button class="btn-delete-list" type="button"><img src="../../../../assets/icons/btn-delete.png"></button>
+<div *ngFor="let comic of comics" class="container-flex-row container-comic">
+    <button (click)="deleteComic(comic)" class="btn-delete-list" type="button"><img src="../../../../assets/icons/btn-delete.png"></button>
 
-  <img src="http://i.annihil.us/u/prod/marvel/i/mg/d/03/58dd080719806/portrait_incredible.jpg" alt="">
-  <h5 class="title-comic"><b>Avengers: The Initiative (2007) #19</b></h5>
+  <img [src]="comic.img" alt="">
+  <h5 class="title-comic"><b>{{ comic.title }}</b></h5>
 </div>
 <!-- End Data comic -->

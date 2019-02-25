@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 //import service
 import { ServiceService } from "./services/service.service";
 import { SearchNavbarService } from "./services/search-navbar.service";
+import { LocalStorageService } from "./services/local-storage.service";
 
 //Import Pipes
 import { TextSmallPipe } from './pipes/text-small.pipe';
@@ -47,7 +48,8 @@ import { ComicsFavoriteComponent } from './components/shared-components/comics-f
   ],
   providers: [
     ServiceService,
-    SearchNavbarService
+    SearchNavbarService,
+    LocalStorageService
   ],
   bootstrap: [AppComponent]
 })

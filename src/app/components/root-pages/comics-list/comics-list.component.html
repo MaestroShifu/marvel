@@ -63,9 +63,13 @@
   </div>
 
   <div class="container-flex-row btn-modal">
-    <button class="btn-modal-favorite" (click)="myModal.close()">
+    <button *ngIf="comicModal?.visible" class="btn-modal-favorite" (click)="addComic(comicModal)">
         <img src="../../../../assets/icons/favourites.png">
         <b class="text-btn-modal">ADD TO FAVOURITE</b>
+    </button>
+    <button disabled *ngIf="!comicModal?.visible" class="btn-modal-favorite-disable" (click)="addComic(comicModal)">
+        <img src="../../../../assets/icons/favourites.png">
+        <b class="text-btn-modal">ADDED TO FAVOURITES</b>
     </button>
     <button class="btn-moda-buy" (click)="myModal.close()">
       <img src="../../../../assets/icons/shopping-cart-primary.png">

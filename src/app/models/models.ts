@@ -21,4 +21,5 @@ export interface Comic {
     number: string;
     description: string;
     img: string;
+    visible: boolean;
 }
