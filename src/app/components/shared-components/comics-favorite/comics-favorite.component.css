@@ -1,0 +1,24 @@
+.title {
+    padding: 8%;
+}
+
+.title h3 {
+    margin-left: 10px;
+}
+
+.title-comic {
+    text-align: center;
+    padding: 3%;
+}
+
+.container-comic {
+    position: relative;
+}
+
+.btn-delete-list {
+    position: absolute;
+    top: -18px;
+    right: 21px;
+    border: 0;
+    background: none;
+}

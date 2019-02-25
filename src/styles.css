@@ -49,7 +49,7 @@ body {
 /* Solcuiona el tema de no completar with rutas hijas */
 .data-page {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     display: block;
     height: 100%;
     width: 100%;

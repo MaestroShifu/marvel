@@ -26,6 +26,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared-components/navbar/navbar.component';
 import { HomeComponent } from './components/root-pages/home/home.component';
 import { ComicsListComponent } from './components/root-pages/comics-list/comics-list.component';
+import { ComicsFavoriteComponent } from './components/shared-components/comics-favorite/comics-favorite.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ComicsListComponent } from './components/root-pages/comics-list/comics-
     HomeComponent,
     TextSmallPipe,
     ComicsListComponent,
+    ComicsFavoriteComponent,
   ],
   imports: [
     BrowserModule,

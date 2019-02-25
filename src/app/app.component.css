@@ -1,5 +1,6 @@
 .container-data {
     flex-wrap: nowrap !important;
+    align-items: flex-start !important;
 }
 
 .container-viewer {
@@ -10,6 +11,7 @@
 }
 
 .container-favorite {
+    justify-content: flex-start !important;
     width: 20% !important;
     height: auto !important;
 }
