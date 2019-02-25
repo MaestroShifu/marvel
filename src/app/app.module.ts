@@ -18,6 +18,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 //Import ngx spinner
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+//Import Ngx modal
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+
 // Import components project angular
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared-components/navbar/navbar.component';
@@ -37,7 +40,8 @@ import { ComicsListComponent } from './components/root-pages/comics-list/comics-
     HttpClientModule,
     AppRoutingModule,
     NgxPaginationModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxSmartModalModule.forRoot()
   ],
   providers: [
     ServiceService,

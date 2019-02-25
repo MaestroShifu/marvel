@@ -22,6 +22,10 @@ export class ServiceService {
     return `${url}/standard_xlarge.${format}`;
   }
 
+  get_image_comic(url: string, format: string) {
+    return `${url}/portrait_incredible.${format}`;
+  }
+
   get_all_characters(page?: Page) {
     if(page.search && (page.search.length > 0)) {
       return this.http.get(`${this.host}/characters?nameStartsWith=${page.search}&orderBy=${page.sort}&limit=${page.itemPerPage}&offset=${page.dataPage}&${this.key}`);

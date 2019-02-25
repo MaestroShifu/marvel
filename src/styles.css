@@ -1,3 +1,5 @@
+@import "~ngx-smart-modal/ngx-smart-modal";
+
 body {
     margin: 0px;
     position: relative;
@@ -67,4 +69,63 @@ body {
     background: #ebebeb !important;
     color: #847d7c !important;
     font-weight: bold;
+}
+
+.overlay.nsm-overlay-open {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center; /* Manejo en X */
+    align-items: center; /* Manjeo en Y  */
+}
+
+.overlay {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center; /* Manejo en X */
+    align-items: center; /* Manjeo en Y  */
+}
+
+.nsm-dialog {
+    margin: 0px !important;
+    width: 50vw !important;
+    max-width: 50vw !important;
+}
+
+.nsm-dialog-btn-close {
+    display: none !important;
+}
+
+.btn-modal-comic {
+    display: block !important;
+}
+
+.btn-modal {
+    justify-content: stretch;
+    flex-wrap: nowrap;
+}
+
+.nsm-content {
+    padding: 0px !important;
+}
+
+.btn-modal button{
+    width: 100%;
+    border: 0px;
+    padding: 1%;
+}
+
+.btn-modal-favorite {
+    background-color: #f0f0f0;
+    color: #4e4544;
+}
+
+.btn-moda-buy {
+    background-color: #dcdcdc;
+    color: #ec1d23;
+}
+
+.text-btn-modal {
+    margin-left: 3%;
 }

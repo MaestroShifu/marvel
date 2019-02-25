@@ -43,8 +43,7 @@
 }
 
 .card-custom-avatar{
-    width: 200px;
-    /* height: 150px; */
+    width: 200px;   
 }
 
 .card-custom-avatar img {
@@ -54,12 +53,13 @@
     top: -13px;
     left: -0.75rem;
     width: 200px;
-    /* height: 150px; */
+    height: 200px;
 }
 
 .btn-card {
     border-color: #ec1d23 !important;
     background-color: #ec1d23 !important;
+    color: white !important;
 }
 
 .title-comics {
@@ -80,4 +80,15 @@
 .text-comics span {
     width: 200px;
     margin: 10px;
+}
+
+.container-modal {
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    margin: 20px;
+}
+
+.text-modal-comic {
+    padding: 5%;
+    color: #473e3d;
 }

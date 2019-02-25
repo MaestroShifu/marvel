@@ -6,6 +6,8 @@ import { SearchNavbarService } from "../../../services/search-navbar.service";
 
 import { NgxSpinnerService } from 'ngx-spinner';
 
+import { NgxSmartModalService } from 'ngx-smart-modal';
+
 import { Page, Comic } from '../../../models/models';
 
 @Component({
@@ -17,11 +19,13 @@ export class ComicsListComponent implements OnInit {
 
   public comics: Comic[];
 
+  public comicModal: Comic;
+
   public page: Page;
 
   public selectSort: any[];
 
-  constructor(private _activatedRoute: ActivatedRoute,private _service: ServiceService, private _searchService: SearchNavbarService, private _ngxSpinner: NgxSpinnerService) {    
+  constructor(private _ngxSmartModalService: NgxSmartModalService, private _activatedRoute: ActivatedRoute,private _service: ServiceService, private _searchService: SearchNavbarService, private _ngxSpinner: NgxSpinnerService) {    
     this.comics = [];
     
     this.page = {
@@ -67,7 +71,7 @@ export class ComicsListComponent implements OnInit {
         response.data.results.forEach((data: any) => {
           this.comics.push({
             id: data.id,
-            img: this._service.get_image(data.thumbnail.path, data.thumbnail.extension),
+            img: this._service.get_image_comic  (data.thumbnail.path, data.thumbnail.extension),
             title: data.title,
             description: data.description,
             number: data.issueNumber
@@ -94,6 +98,11 @@ export class ComicsListComponent implements OnInit {
     this.page.sort = event;
 
     this.loadViewService();
+  }
+
+  openModal(data: Comic) {
+    this.comicModal = data;
+    this._ngxSmartModalService.getModal('myModal').open();
   }
 
 }
