@@ -7,9 +7,9 @@
 
   <!-- Input search -->
   <div class="form-inline input-group">
-    <input type="text" class="form-control" placeholder="Search character..." (keyup.enter)="searchCharacter(textcharacter.value)"  #textcharacter>
+    <input type="text" class="form-control" placeholder="Search..." (keyup.enter)="searchCharacter(textcharacter.value)"  #textcharacter>
     <div class="input-group-append">
-      <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
+      <button (click)="searchCharacter(textcharacter.value)" class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></button>
     </div>
   </div>
   <!-- End Input search -->

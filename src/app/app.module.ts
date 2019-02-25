@@ -15,10 +15,14 @@ import { TextSmallPipe } from './pipes/text-small.pipe';
 //Import ngx pagination
 import { NgxPaginationModule } from 'ngx-pagination';
 
+//Import ngx spinner
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 // Import components project angular
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared-components/navbar/navbar.component';
 import { HomeComponent } from './components/root-pages/home/home.component';
+import { ComicsListComponent } from './components/root-pages/comics-list/comics-list.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +30,14 @@ import { HomeComponent } from './components/root-pages/home/home.component';
     NavbarComponent,
     HomeComponent,
     TextSmallPipe,
+    ComicsListComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule
   ],
   providers: [
     ServiceService,

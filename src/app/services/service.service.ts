@@ -29,4 +29,8 @@ export class ServiceService {
 
     return this.http.get(`${this.host}/characters?&orderBy=${page.sort}&limit=${page.itemPerPage}&offset=${page.dataPage}&${this.key}`);
   }
+
+  get_comics_character(id: number, page?: Page) {
+    return this.http.get(`${this.host}/characters/${id}/comics?&orderBy=${page.sort}&limit=${page.itemPerPage}&offset=${page.dataPage}&${this.key}`);
+  }
 }

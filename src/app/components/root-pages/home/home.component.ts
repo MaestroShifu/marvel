@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from "../../../services/service.service";
 import { SearchNavbarService } from "../../../services/search-navbar.service";
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 import { Hero, Page } from "../../../models/models";
 
 @Component({
@@ -18,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   public selectSort: any[];
 
-  constructor(private _service: ServiceService, private _searchService: SearchNavbarService) {
+  constructor(private _service: ServiceService, private _searchService: SearchNavbarService, private _ngxSpinner: NgxSpinnerService) {
     //inicializar  
     this.heroes = [];
 
@@ -52,6 +54,7 @@ export class HomeComponent implements OnInit {
   }
   
   loadViewService() {
+    this._ngxSpinner.show();
     this.heroes = [];
 
     this._service.get_all_characters(this.page).subscribe((response: any) => {
@@ -66,6 +69,11 @@ export class HomeComponent implements OnInit {
           comics: data.comics.items
         });
       });
+    }, (error: any) => {
+      console.log("Fallo la carga de los characters ", error);
+      alert("Fallo en la coneccion");
+    }, () => {
+      this._ngxSpinner.hide();
     });
   }
 

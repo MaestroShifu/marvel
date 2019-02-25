@@ -12,7 +12,11 @@ export class SearchNavbarService {
   constructor() { }
 
   changeTextInput(text: string) {
-    this.dataText = text;
+    if(text.length == 0) {
+      this.dataText = null;
+    } else {
+      this.dataText = text;
+    }
 
     this.text.emit(this.dataText);
   }

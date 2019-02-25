@@ -14,3 +14,11 @@ export interface Page {
     sort: string;
     search?: string;
 }
+
+export interface Comic {
+    id: number;
+    title: string;
+    number: string;
+    description: string;
+    img: string;
+}
