@@ -14,8 +14,8 @@
 }
 
 .card {
-    width: 500px !important;
     width: 45% !important;
+    margin: 2% !important;
 }
 
 .card-title {
@@ -78,7 +78,7 @@
 }
 
 .text-comics span {
-    width: 200px;
+    width: 45%;
     margin: 10px;
 }
   

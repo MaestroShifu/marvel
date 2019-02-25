@@ -28,7 +28,7 @@
       </div>
 
       <div class="card-body">
-        <h5 class="card-title"><b>{{ comic.title | textSmall:24 }}</b></h5>
+        <h5 class="card-title"><b>{{ comic.title | textSmall:18 }}</b></h5>
         <p class="card-text">{{ (comic.description ? comic.description : 'There is no description') | textSmall:180 }}</p>
         <a (click)="openModal(comic)" class="btn-card btn btn-primary">VIEW MORE</a>
       </div>

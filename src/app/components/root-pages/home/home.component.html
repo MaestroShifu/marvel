@@ -28,8 +28,8 @@
       </div>
 
       <div class="card-body">
-        <h5 class="card-title"><b>{{ hero.name }}</b></h5>
-        <p class="card-text">{{ (hero.description ? hero.description : 'There is no description') | textSmall:180 }}</p>
+        <h5 class="card-title"><b>{{ hero.name | textSmall:18 }}</b></h5>
+        <p class="card-text">{{ (hero.description ? hero.description : 'There is no description') | textSmall:150 }}</p>
         <a [routerLink]="['characters', hero.id]" class="btn-card btn btn-primary">VIEW MORE</a>
       </div>
     </div>
